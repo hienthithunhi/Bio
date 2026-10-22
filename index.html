@@ -314,25 +314,74 @@
             border-radius: 10px;
         }
 
-        /* Embedded Video Wrapper */
-        .video-container {
+        /* Custom Video Card Player */
+        .video-card-preview {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
+            width: 100%;
+            height: 240px;
+            border-radius: 16px;
             overflow: hidden;
-            border-radius: 12px;
-            background: #000;
-            margin-top: 15px;
-            border: 1px solid #f2e2dd;
+            background: #1c1e21;
+            margin-top: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            text-decoration: none;
+            border: 1px solid #f0ded9;
         }
 
-        .video-container iframe {
+        .video-card-bg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border: 0;
+            object-fit: cover;
+            opacity: 0.55;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        .video-card-preview:hover .video-card-bg {
+            transform: scale(1.05);
+            opacity: 0.7;
+        }
+
+        .play-btn-circle {
+            position: relative;
+            z-index: 2;
+            width: 65px;
+            height: 65px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--facebook-blue);
+            font-size: 1.6rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, background 0.3s ease;
+            padding-left: 4px;
+        }
+
+        .video-card-preview:hover .play-btn-circle {
+            transform: scale(1.15);
+            background: #ffffff;
+        }
+
+        .video-card-title {
+            position: absolute;
+            bottom: 15px;
+            left: 20px;
+            right: 20px;
+            z-index: 2;
+            color: white;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         /* Buttons */
@@ -632,12 +681,14 @@
                         </div>
                     </div>
 
-                    <!-- Embedded Facebook Recap Video Direct Player -->
+                    <!-- Video Recap Player Banner -->
                     <div style="margin-top: 20px;">
-                        <span style="font-size: 0.88rem; font-weight: 700; color: var(--accent-color);"><i class="fa-solid fa-circle-play"></i> Video Recap Event Tụ Sắc (Xem trực tiếp):</span>
-                        <div class="video-container">
-                            <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61572487434250%2Fvideos%2F1DvLkVXAJg%2F&show_text=false&width=560" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-                        </div>
+                        <span style="font-size: 0.88rem; font-weight: 700; color: var(--accent-color);"><i class="fa-solid fa-circle-play"></i> Video Recap Event Tụ Sắc:</span>
+                        <a href="https://www.facebook.com/share/v/1DvLkVXAJg/" target="_blank" class="video-card-preview">
+                            <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/tusac-keyvisual.jpg" alt="Recap Event Tụ Sắc" class="video-card-bg" onerror="this.src='https://via.placeholder.com/600x240/d97762/ffffff?text=Recap+Event+Tụ+Sắc'">
+                            <div class="play-btn-circle"><i class="fa-solid fa-play"></i></div>
+                            <div class="video-card-title"><i class="fa-brands fa-facebook"></i> Xem Video Recap Event Tụ Sắc trên Facebook</div>
+                        </a>
                     </div>
 
                     <!-- Fanpage Button TỤ SẮC -->
