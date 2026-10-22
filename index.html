@@ -14,6 +14,7 @@
             --text-muted: #786865;
             --card-bg: #ffffff;
             --sidebar-bg: #fffbf8;
+            --youtube-red: #ff0000;
         }
 
         * {
@@ -92,6 +93,7 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(217, 119, 98, 0.15);
+            background: #fff;
         }
 
         .hero-img-container img {
@@ -176,11 +178,6 @@
             padding: 25px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.03);
             border: 1px solid #f5ebe8;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-50px);
         }
 
         .card-header {
@@ -235,13 +232,61 @@
             background: white;
             border-radius: 16px;
             overflow: hidden;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             border: 1px solid #f5ebe8;
             box-shadow: 0 4px 20px rgba(0,0,0,0.03);
         }
 
         .project-body {
             padding: 25px;
+        }
+
+        .media-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .media-item {
+            background: #fdf6f4;
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #f2e2dd;
+        }
+
+        .media-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+
+        .media-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .btn-yt {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--youtube-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-yt:hover {
+            opacity: 0.9;
         }
 
         .project-metrics {
@@ -297,13 +342,13 @@
         <!-- Hero Section -->
         <section id="about" class="hero">
             <div class="hero-img-container">
-                <img src="https://raw.githubusercontent.com/Thunhyy/Bio-/main/avatar.jpg" alt="Hiến Thị Thu Nhi" onerror="this.src='https://via.placeholder.com/280x350/e8a598/ffffff?text=Thu+Nhi'">
+                <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/avatar.png" alt="Hiến Thị Thu Nhi" onerror="this.src='https://via.placeholder.com/280x350/e8a598/ffffff?text=Thu+Nhi'">
             </div>
             <div class="hero-content">
                 <div class="hero-subtitle">Brand Communication & Event Specialist</div>
                 <h1>HIẾN THỊ THU NHI</h1>
                 <p class="hero-bio">
-                    Cử nhân Xuất sắc ngành Marketing tại Đại học UEH (GPA 3.9/4.0). Với hơn 1.5 năm kinh nghiệm thực chiến từ Content Writer, Social Media đến Event & Brand Activation tại các thương hiệu lớn như M.O.I Cosmetics, CellphoneS.
+                    Cử nhân Xuất sắc ngành Marketing tại Đại học UEH (GPA 3.9/4.0). Hơn 1.5 năm kinh nghiệm thực chiến đa dạng vị trí từ Content Writer, Social Media đến Event & Brand Activation tại các thương hiệu uy tín như M.O.I Cosmetics, CellphoneS.
                 </p>
                 <div class="contact-info">
                     <div class="contact-item"><i class="fa-solid fa-phone" style="color:var(--accent-color)"></i> 0968 980 630</div>
@@ -323,7 +368,7 @@
                         <span class="card-badge">GPA 3.9 / 4.0</span>
                     </div>
                     <div class="card-sub">Cử nhân Marketing (Tốt nghiệp loại Xuất sắc)</div>
-                    <p style="font-size:0.88rem; color:var(--text-muted)">Trang bị tư duy chiến lược marketing, nghiên cứu thị trường và quản trị thương hiệu toàn diện.</p>
+                    <p style="font-size:0.88rem; color:var(--text-muted)">Nền tảng kiến thức bài bản về tư duy tiếp thị chiến lược, quản trị thương hiệu và nghiên cứu thị trường.</p>
                 </div>
                 <div class="card">
                     <div class="card-header">
@@ -338,27 +383,48 @@
             </div>
         </section>
 
-        <!-- Experience -->
+        <!-- Experience & Products Showcase -->
         <section id="experience">
-            <h2 class="section-title"><i class="fa-solid fa-briefcase" style="color:var(--accent-color)"></i> Kinh Nghiệm Làm Việc</h2>
+            <h2 class="section-title"><i class="fa-solid fa-briefcase" style="color:var(--accent-color)"></i> Kinh Nghiệm Thực Chiến & Sản Phẩm</h2>
             
+            <!-- M.O.I Cosmetics -->
             <div class="project-card">
                 <div class="project-body">
                     <div class="card-header">
                         <div>
                             <div class="card-title" style="font-size:1.2rem">M.O.I Cosmetics</div>
-                            <div class="card-sub">Brand Communication Executive | 07/2024 - Huyện tại</div>
+                            <div class="card-sub">Brand Communication Executive | 07/2024 - Hiện tại</div>
                         </div>
-                        <span class="card-badge">Cosmetics</span>
+                        <span class="card-badge">Beauty & Cosmetics</span>
                     </div>
-                    <ul style="padding-left:20px; font-size:0.92rem; color:var(--text-dark)">
-                        <li>Lập kế hoạch truyền thông cho sản phẩm mới (Soft Power Matte Liptint, Baby Cheek minisize).</li>
-                        <li>Theo dõi, phân tích chỉ số Facebook Page performance & tối ưu hóa bài viết air hàng tuần.</li>
-                        <li>Triển khai hoạt động contest/challenge cho Content Creator thu hút hàng triệu reach.</li>
+                    <ul style="padding-left:20px; font-size:0.92rem; color:var(--text-dark); margin-bottom:15px">
+                        <li>Lập kế hoạch truyền thông Launching dòng son <b>Soft Power Matte Liptint</b> (6 màu chuẩn lỳ) và má hồng <b>Baby Cheek</b>.</li>
+                        <li>Đo lường & Phân tích hiệu suất Facebook Page (Đạt 10.3M+ lượt xem, 23.6K+ tương tác bài viết).</li>
+                        <li>Triển khai contest/challenge cho Content Creator (Review son lấy quà thật - iPhone 16 Pro).</li>
                     </ul>
+
+                    <!-- Visual Assets M.O.I -->
+                    <div style="margin-top: 15px;">
+                        <span style="font-size: 0.88rem; font-weight: 700; color: var(--accent-color);"><i class="fa-solid fa-photo-film"></i> Sản phẩm & Ấn phẩm Truyền thông M.O.I:</span>
+                        <div class="media-gallery">
+                            <div class="media-item">
+                                <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/moi-softpower.jpg" alt="TVC Soft Power Liptint" onerror="this.src='https://via.placeholder.com/200x150/e8a598/ffffff?text=Soft+Power+M.O.I'">
+                                <div class="media-title">KV & TVC Soft Power Liptint</div>
+                            </div>
+                            <div class="media-item">
+                                <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/moi-babycheek.jpg" alt="Key Visual Baby Cheek" onerror="this.src='https://via.placeholder.com/200x150/d97762/ffffff?text=Baby+Cheek+M.O.I'">
+                                <div class="media-title">Key Visual Baby Cheek</div>
+                            </div>
+                            <div class="media-item">
+                                <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/moi-contest.jpg" alt="Review Contest" onerror="this.src='https://via.placeholder.com/200x150/e8a598/ffffff?text=Contest+M.O.I'">
+                                <div class="media-title">Contest Review Lấy Quà Thật</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
+            <!-- CellphoneS -->
             <div class="project-card">
                 <div class="project-body">
                     <div class="card-header">
@@ -369,13 +435,21 @@
                         <span class="card-badge">Retail & Tech</span>
                     </div>
                     <ul style="padding-left:20px; font-size:0.92rem; color:var(--text-dark)">
-                        <li>Đồng hành hơn 20 Brands lớn (Apple, Xiaomi, OPPO, Samsung) và hợp tác 20+ trường Đại học/THPT.</li>
-                        <li>Lập proposal & vận hành sự kiện quy mô lớn thu hút +30.000 lượt khách hàng trải nghiệm.</li>
-                        <li>Đạt Top 1 Đông Nam Á doanh số bán lẻ iPhone 17 Series & iPhone Air tại hệ thống.</li>
+                        <li>Đồng hành hợp tác cùng 20+ Thương hiệu lớn (Apple, Xiaomi, OPPO, Samsung) & 20+ trường Đại học/THPT.</li>
+                        <li>Xây dựng Proposal & Vận hành chuỗi sự kiện Activation quy mô khủng thu hút +30.000 khách hàng tham gia.</li>
+                        <li>Đạt Top 1 Vùng Đông Nam Á về doanh số bán lẻ iPhone 17 Series & iPhone Air.</li>
                     </ul>
+
+                    <!-- YouTube Link S.CAMP 2025 -->
+                    <div style="margin-top: 15px;">
+                        <a href="https://www.youtube.com" target="_blank" class="https://www.youtube.com/watch?v=oJKWSfME0wA">
+                            <i class="fa-brands fa-youtube"></i> Xem Clip Activation S.CAMP 2025 trên YouTube
+                        </a>
+                    </div>
                 </div>
             </div>
 
+            <!-- Metall Creative -->
             <div class="project-card">
                 <div class="project-body">
                     <div class="card-header">
@@ -386,22 +460,22 @@
                         <span class="card-badge">Agency</span>
                     </div>
                     <ul style="padding-left:20px; font-size:0.92rem; color:var(--text-dark)">
-                        <li>Phụ trách quản lý và xây dựng kế hoạch nội dung cho Fanpage Napoli Coffee.</li>
-                        <li>Tăng hơn +800 người theo dõi mới, thực hiện hơn 20 bài viết và hình ảnh thiết kế đạt hiệu quả cao.</li>
+                        <li>Phụ trách Fanpage <b>Napoli Coffee</b>: Lập kế hoạch truyền thông Social & Website hàng tuần/tháng/quý.</li>
+                        <li>Kết quả: Đạt +800 người theo dõi mới, triển khai hơn 20 bài viết và ấn phẩm thiết kế.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Projects -->
+        <!-- Featured Projects -->
         <section id="projects">
-            <h2 class="section-title"><i class="fa-solid fa-folder-open" style="color:var(--accent-color)"></i> Dự Án Nổi Bật</h2>
+            <h2 class="section-title"><i class="fa-solid fa-folder-open" style="color:var(--accent-color)"></i> Dự Án Cá Nhân & Nghiên Cứu</h2>
             
             <div class="grid-2">
                 <div class="card">
                     <div class="card-title">TỤ SẮC - Ngày Hội Giao Lưu Văn Hóa</div>
-                    <div class="card-sub">Project Leader (Quản lý 10 thành viên)</div>
-                    <p style="font-size:0.88rem; color:var(--text-muted)">Chương trình sự kiện hướng đến học sinh, sinh viên nhằm truyền tải nét đẹp văn hóa Việt Nam.</p>
+                    <div class="card-sub">Project Leader (Điều hành 10 nhân sự)</div>
+                    <p style="font-size:0.88rem; color:var(--text-muted)">Lập kế hoạch & vận hành sự kiện quảng bá nét đẹp văn hóa Việt Nam đến sinh viên UEH.</p>
                     <div class="project-metrics">
                         <div class="metric-box">
                             <div class="metric-value">3.6K+</div>
@@ -416,16 +490,16 @@
 
                 <div class="card">
                     <div class="card-title">Nghiên Cứu Thị Trường Gia Vị Shopee</div>
-                    <div class="card-sub">Market Research & Data Analysis</div>
-                    <p style="font-size:0.88rem; color:var(--text-muted)">Phân tích Top 200 sản phẩm gia vị bán chạy nhất trên Shopee bằng Excel (Pivot Table, Data Visualization).</p>
+                    <div class="card-sub">Market Research Case Study</div>
+                    <p style="font-size:0.88rem; color:var(--text-muted)">Phân tích Top 200 sản phẩm gia vị bán chạy nhất bằng Excel (Pivot Table, Data Visualization).</p>
                     <div class="project-metrics">
                         <div class="metric-box">
                             <div class="metric-value">31.3 Tỷ</div>
-                            <div class="metric-label">Data phân tích</div>
+                            <div class="metric-label">Doanh thu Data</div>
                         </div>
                         <div class="metric-box">
                             <div class="metric-value">15 Brands</div>
-                            <div class="metric-label">Thị phần</div>
+                            <div class="metric-label">Thị phần phân tích</div>
                         </div>
                     </div>
                 </div>
@@ -450,7 +524,7 @@
         <!-- Contact Footer -->
         <section id="contact" style="text-align: center; margin-top: 80px; padding: 40px; background: white; border-radius: 20px; border: 1px solid #f5ebe8;">
             <h2 style="margin-bottom: 15px; color: var(--text-dark);">TRAO CƠ HỘI - ĐỔI SỰ CỐNG HIẾN</h2>
-            <p style="color: var(--text-muted); margin-bottom: 25px;">Chân thành cảm ơn bạn đã dành thời gian xem qua Portfolio của tôi!</p>
+            <p style="color: var(--text-muted); margin-bottom: 25px;">Chân thành cảm ơn quý nhà tuyển dụng đã dành thời gian xem qua Portfolio của tôi!</p>
             <a href="mailto:hienthithunhi.work@gmail.com" style="background: var(--accent-color); color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: 600; display: inline-block;">Gửi Email Cho Tôi</a>
         </section>
 
