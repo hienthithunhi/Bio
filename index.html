@@ -13,7 +13,6 @@
             --text-dark: #332725;
             --text-muted: #786865;
             --card-bg: #ffffff;
-            --sidebar-bg: #fffbf8;
             --youtube-red: #ff0000;
         }
 
@@ -32,7 +31,7 @@
             min-height: 100vh;
         }
 
-        /* Floating Sidebar Navigation */
+        /* Floating Navigation Menu */
         .sidebar-nav {
             position: fixed;
             right: 20px;
@@ -154,7 +153,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            position: relative;
         }
 
         .section-title::after {
@@ -243,22 +241,22 @@
 
         .media-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         .media-item {
             background: #fdf6f4;
             border-radius: 12px;
-            padding: 12px;
+            padding: 10px;
             text-align: center;
             border: 1px solid #f2e2dd;
         }
 
         .media-item img {
             width: 100%;
-            height: 150px;
+            height: 140px;
             object-fit: cover;
             border-radius: 8px;
             margin-bottom: 8px;
@@ -328,7 +326,7 @@
 </head>
 <body>
 
-    <!-- Floating Right Menu -->
+    <!-- Floating Navigation Menu -->
     <nav class="sidebar-nav">
         <a href="#about" title="Giới thiệu"><i class="fa-solid fa-user"></i></a>
         <a href="#education" title="Học vấn"><i class="fa-solid fa-graduation-cap"></i></a>
@@ -348,7 +346,7 @@
                 <div class="hero-subtitle">Brand Communication & Event Specialist</div>
                 <h1>HIẾN THỊ THU NHI</h1>
                 <p class="hero-bio">
-                    Cử nhân Xuất sắc ngành Marketing tại Đại học UEH (GPA 3.9/4.0). Hơn 1.5 năm kinh nghiệm thực chiến đa dạng vị trí từ Content Writer, Social Media đến Event & Brand Activation tại các thương hiệu uy tín như M.O.I Cosmetics, CellphoneS.
+                    Cử nhân Xuất sắc ngành Marketing tại Đại học UEH (GPA 3.9/4.0)[cite: 17, 29]. Hơn 1.5 năm kinh nghiệm thực chiến đa dạng vị trí từ Content Writer, Social Media đến Event & Brand Activation tại các thương hiệu uy tín như M.O.I Cosmetics, CellphoneS[cite: 16, 17, 18, 21].
                 </p>
                 <div class="contact-info">
                     <div class="contact-item"><i class="fa-solid fa-phone" style="color:var(--accent-color)"></i> 0968 980 630</div>
@@ -358,7 +356,7 @@
             </div>
         </section>
 
-        <!-- Education & Certificates -->
+        <!-- Education Section -->
         <section id="education">
             <h2 class="section-title"><i class="fa-solid fa-graduation-cap" style="color:var(--accent-color)"></i> Học Vấn & Chứng Chỉ</h2>
             <div class="grid-2">
@@ -383,7 +381,7 @@
             </div>
         </section>
 
-        <!-- Experience & Products Showcase -->
+        <!-- Work Experience & Visual Products Showcase -->
         <section id="experience">
             <h2 class="section-title"><i class="fa-solid fa-briefcase" style="color:var(--accent-color)"></i> Kinh Nghiệm Thực Chiến & Sản Phẩm</h2>
             
@@ -398,26 +396,38 @@
                         <span class="card-badge">Beauty & Cosmetics</span>
                     </div>
                     <ul style="padding-left:20px; font-size:0.92rem; color:var(--text-dark); margin-bottom:15px">
-                        <li>Lập kế hoạch truyền thông Launching dòng son <b>Soft Power Matte Liptint</b> (6 màu chuẩn lỳ) và má hồng <b>Baby Cheek</b>.</li>
-                        <li>Đo lường & Phân tích hiệu suất Facebook Page (Đạt 10.3M+ lượt xem, 23.6K+ tương tác bài viết).</li>
-                        <li>Triển khai contest/challenge cho Content Creator (Review son lấy quà thật - iPhone 16 Pro).</li>
+                        <li>Lập kế hoạch truyền thông Launching dòng son <b>Soft Power Matte Liptint</b> (6 màu chuẩn lỳ) và má hồng <b>Baby Cheek</b>[cite: 23, 24, 25].</li>
+                        <li>Đo lường & Phân tích hiệu suất Facebook Page (Đạt 10.3M+ lượt xem, 23.6K+ tương tác bài viết)[cite: 23, 24].</li>
+                        <li>Triển khai contest/challenge cho Content Creator (Review son lấy quà thật - iPhone 16 Pro)[cite: 24].</li>
                     </ul>
 
-                    <!-- Visual Assets M.O.I -->
+                    <!-- Visual Assets M.O.I Gallery -->
                     <div style="margin-top: 15px;">
-                        <span style="font-size: 0.88rem; font-weight: 700; color: var(--accent-color);"><i class="fa-solid fa-photo-film"></i> Sản phẩm & Ấn phẩm Truyền thông M.O.I:</span>
+                        <span style="font-size: 0.88rem; font-weight: 700; color: var(--accent-color);"><i class="fa-solid fa-photo-film"></i> Thư viện Ảnh Chiến dịch M.O.I:</span>
                         <div class="media-gallery">
                             <div class="media-item">
-                                <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/moi-softpower.jpg" alt="TVC Soft Power Liptint" onerror="this.src='https://via.placeholder.com/200x150/e8a598/ffffff?text=Soft+Power+M.O.I'">
-                                <div class="media-title">KV & TVC Soft Power Liptint</div>
+                                <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/moi-softpower.jpg" alt="Soft Power Liptint" onerror="this.src='https://via.placeholder.com/200x150/e8a598/ffffff?text=Soft+Power'">
+                                <div class="media-title">KV Soft Power Liptint</div>
                             </div>
                             <div class="media-item">
-                                <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/moi-babycheek.jpg" alt="Key Visual Baby Cheek" onerror="this.src='https://via.placeholder.com/200x150/d97762/ffffff?text=Baby+Cheek+M.O.I'">
-                                <div class="media-title">Key Visual Baby Cheek</div>
+                                <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/moi-babycheek.jpg" alt="Baby Cheek" onerror="this.src='https://via.placeholder.com/200x150/d97762/ffffff?text=Baby+Cheek'">
+                                <div class="media-title">KV Baby Cheek</div>
                             </div>
                             <div class="media-item">
-                                <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/moi-contest.jpg" alt="Review Contest" onerror="this.src='https://via.placeholder.com/200x150/e8a598/ffffff?text=Contest+M.O.I'">
-                                <div class="media-title">Contest Review Lấy Quà Thật</div>
+                                <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/moi-contest.png" alt="Review Contest" onerror="this.src='https://via.placeholder.com/200x150/e8a598/ffffff?text=Review+Contest'">
+                                <div class="media-title">Contest Review Lấy Quà</div>
+                            </div>
+                            <div class="media-item">
+                                <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/moi-megalive.jpg" alt="Megalive Campaign" onerror="this.src='https://via.placeholder.com/200x150/d97762/ffffff?text=Mega+Live'">
+                                <div class="media-title">Megalive Campaign</div>
+                            </div>
+                            <div class="media-item">
+                                <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/moi-cushion.jpg" alt="M.O.I Cushion" onerror="this.src='https://via.placeholder.com/200x150/e8a598/ffffff?text=Cushion'">
+                                <div class="media-title">Dòng Cushion M.O.I</div>
+                            </div>
+                            <div class="media-item">
+                                <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/moi-trendy.jpg" alt="M.O.I Trendy" onerror="this.src='https://via.placeholder.com/200x150/d97762/ffffff?text=Trendy'">
+                                <div class="media-title">Ấn phẩm M.O.I Trendy</div>
                             </div>
                         </div>
                     </div>
@@ -435,12 +445,11 @@
                         <span class="card-badge">Retail & Tech</span>
                     </div>
                     <ul style="padding-left:20px; font-size:0.92rem; color:var(--text-dark)">
-                        <li>Đồng hành hợp tác cùng 20+ Thương hiệu lớn (Apple, Xiaomi, OPPO, Samsung) & 20+ trường Đại học/THPT.</li>
-                        <li>Xây dựng Proposal & Vận hành chuỗi sự kiện Activation quy mô khủng thu hút +30.000 khách hàng tham gia.</li>
-                        <li>Đạt Top 1 Vùng Đông Nam Á về doanh số bán lẻ iPhone 17 Series & iPhone Air.</li>
+                        <li>Đồng hành hợp tác cùng 20+ Thương hiệu lớn (Apple, Xiaomi, OPPO, Samsung) & 20+ trường Đại học/THPT[cite: 26].</li>
+                        <li>Xây dựng Proposal & Vận hành chuỗi sự kiện Activation quy mô khủng thu hút +30.000 khách hàng tham gia[cite: 26].</li>
+                        <li>Đạt Top 1 Vùng Đông Nam Á về doanh số bán lẻ iPhone 17 Series & iPhone Air[cite: 27].</li>
                     </ul>
 
-                    <!-- YouTube Link S.CAMP 2025 -->
                     <div style="margin-top: 15px;">
                         <a href="https://www.youtube.com" target="_blank" class="btn-yt">
                             <i class="fa-brands fa-youtube"></i> Xem Clip Activation S.CAMP 2025 trên YouTube
@@ -460,22 +469,22 @@
                         <span class="card-badge">Agency</span>
                     </div>
                     <ul style="padding-left:20px; font-size:0.92rem; color:var(--text-dark)">
-                        <li>Phụ trách Fanpage <b>Napoli Coffee</b>: Lập kế hoạch truyền thông Social & Website hàng tuần/tháng/quý.</li>
-                        <li>Kết quả: Đạt +800 người theo dõi mới, triển khai hơn 20 bài viết và ấn phẩm thiết kế.</li>
+                        <li>Phụ trách Fanpage <b>Napoli Coffee</b>: Lập kế hoạch truyền thông Social & Website hàng tuần/tháng/quý[cite: 28].</li>
+                        <li>Kết quả: Đạt +800 người theo dõi mới, triển khai hơn 20 bài viết và ấn phẩm thiết kế[cite: 29].</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Featured Projects -->
+        <!-- Featured Projects Section -->
         <section id="projects">
             <h2 class="section-title"><i class="fa-solid fa-folder-open" style="color:var(--accent-color)"></i> Dự Án Cá Nhân & Nghiên Cứu</h2>
             
             <div class="grid-2">
                 <div class="card">
                     <div class="card-title">TỤ SẮC - Ngày Hội Giao Lưu Văn Hóa</div>
-                    <div class="card-sub">Project Leader (Điều hành 10 nhân sự)</div>
-                    <p style="font-size:0.88rem; color:var(--text-muted)">Lập kế hoạch & vận hành sự kiện quảng bá nét đẹp văn hóa Việt Nam đến sinh viên UEH.</p>
+                    <div class="card-sub">Project Leader (Điều hành 10 nhân sự)[cite: 30]</div>
+                    <p style="font-size:0.88rem; color:var(--text-muted)">Lập kế hoạch & vận hành sự kiện quảng bá nét đẹp văn hóa Việt Nam đến sinh viên UEH[cite: 30].</p>
                     <div class="project-metrics">
                         <div class="metric-box">
                             <div class="metric-value">3.6K+</div>
@@ -491,7 +500,7 @@
                 <div class="card">
                     <div class="card-title">Nghiên Cứu Thị Trường Gia Vị Shopee</div>
                     <div class="card-sub">Market Research Case Study</div>
-                    <p style="font-size:0.88rem; color:var(--text-muted)">Phân tích Top 200 sản phẩm gia vị bán chạy nhất bằng Excel (Pivot Table, Data Visualization).</p>
+                    <p style="font-size:0.88rem; color:var(--text-muted)">Phân tích Top 200 sản phẩm gia vị bán chạy nhất bằng Excel (Pivot Table, Data Visualization)[cite: 31].</p>
                     <div class="project-metrics">
                         <div class="metric-box">
                             <div class="metric-value">31.3 Tỷ</div>
@@ -506,7 +515,7 @@
             </div>
         </section>
 
-        <!-- Skills -->
+        <!-- Skills Section -->
         <section id="skills">
             <h2 class="section-title"><i class="fa-solid fa-wand-magic-sparkles" style="color:var(--accent-color)"></i> Kỹ Năng & Công Cụ</h2>
             <div class="skills-container">
