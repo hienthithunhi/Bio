@@ -357,11 +357,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--facebook-blue);
+            color: var(--youtube-red);
             font-size: 1.6rem;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
             transition: transform 0.3s ease, background 0.3s ease;
             padding-left: 4px;
+        }
+
+        .play-btn-circle.fb-style {
+            color: var(--facebook-blue);
         }
 
         .video-card-preview:hover .play-btn-circle {
@@ -628,9 +632,13 @@
                         <li>Đạt Top 1 Vùng Đông Nam Á về doanh số bán lẻ iPhone 17 Series & iPhone Air.</li>
                     </ul>
 
-                    <div style="margin-top: 15px;">
-                        <a href="https://www.youtube.com" target="_blank" class="btn-yt">
-                            <i class="fa-brands fa-youtube"></i> Xem Clip Activation S.CAMP 2025 trên YouTube
+                    <!-- CellphoneS Video Card Preview Banner -->
+                    <div style="margin-top: 20px;">
+                        <span style="font-size: 0.88rem; font-weight: 700; color: var(--accent-color);"><i class="fa-solid fa-circle-play"></i> Video Activation S.CAMP 2025:</span>
+                        <a href="https://www.youtube.com" target="_blank" class="video-card-preview">
+                            <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/cellphones-event.jpg" alt="Activation S.CAMP CellphoneS" class="video-card-bg" onerror="this.src='https://via.placeholder.com/600x240/e8a598/ffffff?text=Activation+S.CAMP+CellphoneS'">
+                            <div class="play-btn-circle"><i class="fa-solid fa-play"></i></div>
+                            <div class="video-card-title"><i class="fa-brands fa-youtube" style="color:var(--youtube-red)"></i> Xem Clip Activation S.CAMP 2025 trên YouTube</div>
                         </a>
                     </div>
                 </div>
@@ -686,7 +694,7 @@
                         <span style="font-size: 0.88rem; font-weight: 700; color: var(--accent-color);"><i class="fa-solid fa-circle-play"></i> Video Recap Event Tụ Sắc:</span>
                         <a href="https://www.facebook.com/share/v/1DvLkVXAJg/" target="_blank" class="video-card-preview">
                             <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/tusac-keyvisual.jpg" alt="Recap Event Tụ Sắc" class="video-card-bg" onerror="this.src='https://via.placeholder.com/600x240/d97762/ffffff?text=Recap+Event+Tụ+Sắc'">
-                            <div class="play-btn-circle"><i class="fa-solid fa-play"></i></div>
+                            <div class="play-btn-circle fb-style"><i class="fa-solid fa-play"></i></div>
                             <div class="video-card-title"><i class="fa-brands fa-facebook"></i> Xem Video Recap Event Tụ Sắc trên Facebook</div>
                         </a>
                     </div>
