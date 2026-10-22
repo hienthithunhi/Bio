@@ -99,6 +99,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            cursor: pointer;
         }
 
         .hero-content h1 {
@@ -225,7 +226,7 @@
             gap: 6px;
         }
 
-        /* Project Showcase */
+        /* Project Showcase & Horizontal Slider */
         .project-card {
             background: white;
             border-radius: 16px;
@@ -239,33 +240,115 @@
             padding: 25px;
         }
 
-        .media-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
+        .slider-wrapper {
+            position: relative;
             margin-top: 15px;
         }
 
+        .media-gallery-slider {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding-bottom: 15px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .media-gallery-slider::-webkit-scrollbar {
+            display: none;
+        }
+
         .media-item {
+            flex: 0 0 260px;
+            scroll-snap-align: start;
             background: #fdf6f4;
             border-radius: 12px;
-            padding: 10px;
+            padding: 12px;
             text-align: center;
             border: 1px solid #f2e2dd;
+            transition: transform 0.3s ease;
+        }
+
+        .media-item:hover {
+            transform: translateY(-4px);
         }
 
         .media-item img {
             width: 100%;
-            height: 140px;
-            object-fit: cover;
+            height: 180px;
+            object-fit: contain; /* Giữ nguyên toàn bộ khung hình không bị xén ảnh */
             border-radius: 8px;
             margin-bottom: 8px;
+            background: #ffffff;
+            cursor: pointer;
         }
 
         .media-title {
             font-size: 0.85rem;
             font-weight: 600;
             color: var(--text-dark);
+        }
+
+        /* Pagination Dots */
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #f0ded9;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: var(--accent-color);
+            width: 24px;
+            border-radius: 10px;
+        }
+
+        /* Lightbox Full Screen Modal */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-modal img {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            color: var(--primary-color);
         }
 
         .btn-yt {
@@ -321,6 +404,10 @@
             .sidebar-nav {
                 display: none;
             }
+
+            .media-item {
+                flex: 0 0 220px;
+            }
         }
     </style>
 </head>
@@ -340,7 +427,7 @@
         <!-- Hero Section -->
         <section id="about" class="hero">
             <div class="hero-img-container">
-                <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/avatar.png" alt="Hiến Thị Thu Nhi" onerror="this.src='https://via.placeholder.com/280x350/e8a598/ffffff?text=Thu+Nhi'">
+                <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/avatar.png" alt="Hiến Thị Thu Nhi" onclick="openLightbox(this.src)" onerror="this.src='https://via.placeholder.com/280x350/e8a598/ffffff?text=Thu+Nhi'">
             </div>
             <div class="hero-content">
                 <div class="hero-subtitle">Brand Communication & Event Specialist</div>
@@ -401,34 +488,40 @@
                         <li>Triển khai contest/challenge cho Content Creator (Review son lấy quà thật - iPhone 16 Pro).</li>
                     </ul>
 
-                    <!-- Visual Assets M.O.I Gallery -->
+                    <!-- Visual Assets Slider M.O.I -->
                     <div style="margin-top: 15px;">
-                        <span style="font-size: 0.88rem; font-weight: 700; color: var(--accent-color);"><i class="fa-solid fa-photo-film"></i> Thư viện Ảnh Chiến dịch M.O.I:</span>
-                        <div class="media-gallery">
-                            <div class="media-item">
-                                <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/moi-softpower.jpg" alt="Creative Idea">
-                                <div class="media-title">Creative Idea</div>
+                        <span style="font-size: 0.88rem; font-weight: 700; color: var(--accent-color);"><i class="fa-solid fa-photo-film"></i> Thư viện Ảnh Chiến dịch M.O.I (Click để xem full):</span>
+                        
+                        <div class="slider-wrapper">
+                            <div class="media-gallery-slider" id="moiSlider" onscroll="updateDots()">
+                                <div class="media-item">
+                                    <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/moi-softpower.jpg" alt="Creative Idea" onclick="openLightbox(this.src)">
+                                    <div class="media-title">Creative Idea</div>
+                                </div>
+                                <div class="media-item">
+                                    <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/moi-babycheek.jpg" alt="Creative Idea" onclick="openLightbox(this.src)">
+                                    <div class="media-title">Creative Idea</div>
+                                </div>
+                                <div class="media-item">
+                                    <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/moi-contest.jpg" alt="Creative Idea" onclick="openLightbox(this.src)">
+                                    <div class="media-title">Creative Idea</div>
+                                </div>
+                                <div class="media-item">
+                                    <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/moi-megalive.jpg" alt="Creative Idea" onclick="openLightbox(this.src)">
+                                    <div class="media-title">Creative Idea</div>
+                                </div>
+                                <div class="media-item">
+                                    <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/moi-cushion.jpg" alt="Creative Idea" onclick="openLightbox(this.src)">
+                                    <div class="media-title">Creative Idea</div>
+                                </div>
+                                <div class="media-item">
+                                    <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/moi-trendy.jpg" alt="Creative Idea" onclick="openLightbox(this.src)">
+                                    <div class="media-title">Creative Idea</div>
+                                </div>
                             </div>
-                            <div class="media-item">
-                                <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/moi-babycheek.jpg" alt="Creative Idea">
-                                <div class="media-title">Creative Idea</div>
-                            </div>
-                            <div class="media-item">
-                                <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/moi-contest.png" alt="Creative Idea">
-                                <div class="media-title">Creative Idea</div>
-                            </div>
-                            <div class="media-item">
-                                <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/moi-megalive.jpg" alt="Creative Idea">
-                                <div class="media-title">Creative Idea</div>
-                            </div>
-                            <div class="media-item">
-                                <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/moi-cushion.jpg" alt="Creative Idea">
-                                <div class="media-title">Creative Idea</div>
-                            </div>
-                            <div class="media-item">
-                                <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/moi-trendy.jpg" alt="Creative Idea">
-                                <div class="media-title">Creative Idea</div>
-                            </div>
+                            
+                            <!-- Chấm tròn lướt slide -->
+                            <div class="slider-dots" id="moiDots"></div>
                         </div>
                     </div>
                 </div>
@@ -469,7 +562,7 @@
                         <span class="card-badge">Agency</span>
                     </div>
                     <ul style="padding-left:20px; font-size:0.92rem; color:var(--text-dark)">
-                        <li>Phụ trách Fanpage <b>Napoli Coffee</b>: Lập kế hoạch truyền thông Social & Website hàng tuần/tháng/quý.</li>
+                        <li>Phụ phụ trách Fanpage <b>Napoli Coffee</b>: Lập kế hoạch truyền thông Social & Website hàng tuần/tháng/quý.</li>
                         <li>Kết quả: Đạt +800 người theo dõi mới, triển khai hơn 20 bài viết và ấn phẩm thiết kế.</li>
                     </ul>
                 </div>
@@ -539,5 +632,56 @@
 
     </div>
 
+    <!-- Lightbox Pop-up Viewer -->
+    <div id="lightbox" class="lightbox-modal" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightboxImg" src="" alt="Full View">
+    </div>
+
+    <script>
+        // Lightbox Functions
+        function openLightbox(src) {
+            document.getElementById('lightboxImg').src = src;
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        // Initialize Slider Dots
+        const slider = document.getElementById('moiSlider');
+        const dotsContainer = document.getElementById('moiDots');
+        const items = slider.querySelectorAll('.media-item');
+
+        items.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                slider.scrollTo({
+                    left: items[index].offsetLeft - slider.offsetLeft,
+                    behavior: 'smooth'
+                });
+            });
+            dotsContainer.appendChild(dot);
+        });
+
+        // Update Dots on Scroll
+        function updateDots() {
+            const dots = dotsContainer.querySelectorAll('.dot');
+            const scrollPos = slider.scrollLeft;
+            const itemWidth = items[0].offsetWidth + 15; // Width + gap
+            const activeIndex = Math.round(scrollPos / itemWidth);
+
+            dots.forEach((dot, index) => {
+                if (index === activeIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
