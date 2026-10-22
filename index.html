@@ -435,6 +435,83 @@
             opacity: 0.9;
         }
 
+        /* Custom Contact Box Section */
+        .contact-box {
+            background: linear-gradient(135deg, #fef5f0 0%, #fcf0ea 100%);
+            border-radius: 30px;
+            padding: 50px 30px;
+            text-align: center;
+            border: 1px solid #f5e1da;
+            box-shadow: 0 10px 30px rgba(217, 119, 98, 0.08);
+            margin-top: 60px;
+        }
+
+        .contact-title-large {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: var(--accent-color);
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .contact-social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .social-circle-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: #1c1e21;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .social-circle-btn:hover {
+            transform: translateY(-5px);
+            background: var(--accent-color);
+            color: white;
+            box-shadow: 0 8px 20px rgba(217, 119, 98, 0.3);
+        }
+
+        .contact-details-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .contact-detail-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .contact-detail-item i {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+        }
+
+        .contact-detail-item:hover {
+            color: var(--accent-color);
+        }
+
         /* Lightbox Full Screen Modal */
         .lightbox-modal {
             display: none;
@@ -510,6 +587,15 @@
 
             .media-item {
                 flex: 0 0 220px;
+            }
+
+            .contact-title-large {
+                font-size: 2.2rem;
+            }
+
+            .contact-details-row {
+                flex-direction: column;
+                gap: 15px;
             }
         }
     </style>
@@ -784,11 +870,24 @@
             </div>
         </section>
 
-        <!-- Contact Footer -->
-        <section id="contact" style="text-align: center; margin-top: 80px; padding: 40px; background: white; border-radius: 20px; border: 1px solid #f5ebe8;">
-            <h2 style="margin-bottom: 15px; color: var(--text-dark);">LET'S CONNECT & WORK TOGETHER</h2>
-            <p style="color: var(--text-muted); margin-bottom: 25px;">Thank you for visiting my Marketing Portfolio!</p>
-            <a href="mailto:hienthithunhi.work@gmail.com" style="background: var(--accent-color); color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: 600; display: inline-block;">Send Me An Email</a>
+        <!-- Contact Box Section -->
+        <section id="contact" class="contact-box">
+            <div class="contact-title-large">CONTACT</div>
+            
+            <div class="contact-social-icons">
+                <a href="https://www.linkedin.com/in/hien-thi-thu-nhi/" target="_blank" class="social-circle-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61572487434250" target="_blank" class="social-circle-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="mailto:hienthithunhi.work@gmail.com" class="social-circle-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+
+            <div class="contact-details-row">
+                <a href="mailto:hienthithunhi.work@gmail.com" class="contact-detail-item">
+                    <i class="fa-solid fa-envelope"></i> hienthithunhi.work@gmail.com
+                </a>
+                <a href="tel:+84968980630" class="contact-detail-item">
+                    <i class="fa-solid fa-phone"></i> (+84) 968 980 630
+                </a>
+            </div>
         </section>
 
     </div>
