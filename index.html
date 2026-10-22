@@ -14,6 +14,7 @@
             --text-muted: #786865;
             --card-bg: #ffffff;
             --youtube-red: #ff0000;
+            --facebook-blue: #1877f2;
         }
 
         * {
@@ -277,7 +278,7 @@
         .media-item img {
             width: 100%;
             height: 180px;
-            object-fit: contain; /* Giữ nguyên toàn bộ khung hình không bị xén ảnh */
+            object-fit: contain;
             border-radius: 8px;
             margin-bottom: 8px;
             background: #ffffff;
@@ -311,6 +312,62 @@
             background-color: var(--accent-color);
             width: 24px;
             border-radius: 10px;
+        }
+
+        /* Embedded Video Wrapper */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #000;
+            margin-top: 15px;
+            border: 1px solid #f2e2dd;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Buttons */
+        .btn-yt {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--youtube-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-fb {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--facebook-blue);
+            color: white;
+            padding: 9px 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-top: 15px;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-yt:hover, .btn-fb:hover {
+            opacity: 0.9;
         }
 
         /* Lightbox Full Screen Modal */
@@ -349,25 +406,6 @@
 
         .lightbox-close:hover {
             color: var(--primary-color);
-        }
-
-        .btn-yt {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background-color: var(--youtube-red);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-top: 15px;
-            transition: opacity 0.3s ease;
-        }
-
-        .btn-yt:hover {
-            opacity: 0.9;
         }
 
         .project-metrics {
@@ -493,7 +531,7 @@
                         <span style="font-size: 0.88rem; font-weight: 700; color: var(--accent-color);"><i class="fa-solid fa-photo-film"></i> Thư viện Ảnh Chiến dịch M.O.I (Click để xem full):</span>
                         
                         <div class="slider-wrapper">
-                            <div class="media-gallery-slider" id="moiSlider" onscroll="updateDots()">
+                            <div class="media-gallery-slider js-slider" id="moiSlider">
                                 <div class="media-item">
                                     <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/moi-softpower.jpg" alt="Creative Idea" onclick="openLightbox(this.src)">
                                     <div class="media-title">Creative Idea</div>
@@ -519,9 +557,7 @@
                                     <div class="media-title">Creative Idea</div>
                                 </div>
                             </div>
-                            
-                            <!-- Chấm tròn lướt slide -->
-                            <div class="slider-dots" id="moiDots"></div>
+                            <div class="slider-dots js-dots"></div>
                         </div>
                     </div>
                 </div>
@@ -562,7 +598,7 @@
                         <span class="card-badge">Agency</span>
                     </div>
                     <ul style="padding-left:20px; font-size:0.92rem; color:var(--text-dark)">
-                        <li>Phụ phụ trách Fanpage <b>Napoli Coffee</b>: Lập kế hoạch truyền thông Social & Website hàng tuần/tháng/quý.</li>
+                        <li>Phụ trách Fanpage <b>Napoli Coffee</b>: Lập kế hoạch truyền thông Social & Website hàng tuần/tháng/quý.</li>
                         <li>Kết quả: Đạt +800 người theo dõi mới, triển khai hơn 20 bài viết và ấn phẩm thiết kế.</li>
                     </ul>
                 </div>
@@ -574,10 +610,17 @@
             <h2 class="section-title"><i class="fa-solid fa-folder-open" style="color:var(--accent-color)"></i> Dự Án Cá Nhân & Nghiên Cứu</h2>
             
             <div class="grid-2">
-                <div class="card">
-                    <div class="card-title">TỤ SẮC - Ngày Hội Giao Lưu Văn Hóa</div>
-                    <div class="card-sub">Project Leader (Điều hành 10 nhân sự)</div>
-                    <p style="font-size:0.88rem; color:var(--text-muted)">Lập kế hoạch & vận hành sự kiện quảng bá nét đẹp văn hóa Việt Nam đến sinh viên UEH.</p>
+                <!-- TỤ SẮC Project Card -->
+                <div class="card" style="grid-column: 1 / -1;">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title" style="font-size: 1.2rem;">TỤ SẮC - Ngày Hội Giao Lưu Văn Hóa</div>
+                            <div class="card-sub">Project Leader (Điều hành 10 nhân sự)</div>
+                        </div>
+                        <span class="card-badge">Culture & Event</span>
+                    </div>
+                    <p style="font-size:0.92rem; color:var(--text-dark); margin-bottom:15px">Lập kế hoạch & vận hành sự kiện quảng bá nét đẹp văn hóa Việt Nam đến sinh viên UEH.</p>
+                    
                     <div class="project-metrics">
                         <div class="metric-box">
                             <div class="metric-value">3.6K+</div>
@@ -588,9 +631,47 @@
                             <div class="metric-label">Điểm môn học</div>
                         </div>
                     </div>
+
+                    <!-- Embedded Facebook Recap Video Direct Player -->
+                    <div style="margin-top: 20px;">
+                        <span style="font-size: 0.88rem; font-weight: 700; color: var(--accent-color);"><i class="fa-solid fa-circle-play"></i> Video Recap Event Tụ Sắc (Xem trực tiếp):</span>
+                        <div class="video-container">
+                            <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F61572487434250%2Fvideos%2F1DvLkVXAJg%2F&show_text=false&width=560" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Fanpage Button TỤ SẮC -->
+                    <div style="margin-top: 15px;">
+                        <a href="https://www.facebook.com/profile.php?id=61572487434250" target="_blank" class="btn-fb">
+                            <i class="fa-brands fa-facebook"></i> Ghé thăm Fanpage Dự Án Tụ Sắc
+                        </a>
+                    </div>
+
+                    <!-- Visual Assets Slider TỤ SẮC -->
+                    <div style="margin-top: 20px;">
+                        <span style="font-size: 0.88rem; font-weight: 700; color: var(--accent-color);"><i class="fa-solid fa-images"></i> Sản Phẩm & Ấn Phẩm Truyền Thông Tụ Sắc (Click xem full):</span>
+                        <div class="slider-wrapper">
+                            <div class="media-gallery-slider js-slider" id="tusacSlider">
+                                <div class="media-item">
+                                    <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/tusac-keyvisual.jpg" alt="Creative Idea" onclick="openLightbox(this.src)" onerror="this.src='https://via.placeholder.com/260x180/e8a598/ffffff?text=Creative+Idea'">
+                                    <div class="media-title">Creative Idea</div>
+                                </div>
+                                <div class="media-item">
+                                    <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/post_tusac1.jpg" alt="Creative Idea" onclick="openLightbox(this.src)" onerror="this.src='https://via.placeholder.com/260x180/e8a598/ffffff?text=Creative+Idea'">
+                                    <div class="media-title">Creative Idea</div>
+                                </div>
+                                <div class="media-item">
+                                    <img src="https://raw.githubusercontent.com/hienthithunhi/Bio/main/post_tusac2.jpg" alt="Creative Idea" onclick="openLightbox(this.src)" onerror="this.src='https://via.placeholder.com/260x180/e8a598/ffffff?text=Creative+Idea'">
+                                    <div class="media-title">Creative Idea</div>
+                                </div>
+                            </div>
+                            <div class="slider-dots js-dots"></div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="card">
+                <!-- Market Research Card -->
+                <div class="card" style="grid-column: 1 / -1;">
                     <div class="card-title">Nghiên Cứu Thị Trường Gia Vị Shopee</div>
                     <div class="card-sub">Market Research Case Study</div>
                     <p style="font-size:0.88rem; color:var(--text-muted)">Phân tích Top 200 sản phẩm gia vị bán chạy nhất bằng Excel (Pivot Table, Data Visualization).</p>
@@ -649,39 +730,43 @@
             document.getElementById('lightbox').style.display = 'none';
         }
 
-        // Initialize Slider Dots
-        const slider = document.getElementById('moiSlider');
-        const dotsContainer = document.getElementById('moiDots');
-        const items = slider.querySelectorAll('.media-item');
+        // Initialize All Sliders Automatically
+        document.querySelectorAll('.slider-wrapper').forEach(wrapper => {
+            const slider = wrapper.querySelector('.js-slider');
+            const dotsContainer = wrapper.querySelector('.js-dots');
+            const items = slider.querySelectorAll('.media-item');
 
-        items.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
-            if (index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => {
-                slider.scrollTo({
-                    left: items[index].offsetLeft - slider.offsetLeft,
-                    behavior: 'smooth'
+            if (!slider || !dotsContainer || items.length === 0) return;
+
+            dotsContainer.innerHTML = '';
+            items.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    slider.scrollTo({
+                        left: items[index].offsetLeft - slider.offsetLeft,
+                        behavior: 'smooth'
+                    });
+                });
+                dotsContainer.appendChild(dot);
+            });
+
+            slider.addEventListener('scroll', () => {
+                const dots = dotsContainer.querySelectorAll('.dot');
+                const scrollPos = slider.scrollLeft;
+                const itemWidth = items[0].offsetWidth + 15;
+                const activeIndex = Math.round(scrollPos / itemWidth);
+
+                dots.forEach((dot, index) => {
+                    if (index === activeIndex) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
                 });
             });
-            dotsContainer.appendChild(dot);
         });
-
-        // Update Dots on Scroll
-        function updateDots() {
-            const dots = dotsContainer.querySelectorAll('.dot');
-            const scrollPos = slider.scrollLeft;
-            const itemWidth = items[0].offsetWidth + 15; // Width + gap
-            const activeIndex = Math.round(scrollPos / itemWidth);
-
-            dots.forEach((dot, index) => {
-                if (index === activeIndex) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
-        }
     </script>
 </body>
 </html>
