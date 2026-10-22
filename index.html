@@ -16,6 +16,7 @@
             --youtube-red: #ff0000;
             --facebook-blue: #1877f2;
             --linkedin-blue: #0a66c2;
+            --zalo-blue: #0068ff;
         }
 
         * {
@@ -435,81 +436,76 @@
             opacity: 0.9;
         }
 
-        /* Custom Contact Box Section */
+        /* Beautiful Aesthetic Pastel Gradient Contact Section */
         .contact-box {
-            background: linear-gradient(135deg, #fef5f0 0%, #fcf0ea 100%);
-            border-radius: 30px;
-            padding: 50px 30px;
+            background: radial-gradient(circle at 10% 20%, rgba(254, 235, 226, 1) 0%, rgba(253, 245, 237, 1) 45%, rgba(247, 218, 209, 0.8) 100%);
+            border-radius: 28px;
+            padding: 55px 30px;
             text-align: center;
-            border: 1px solid #f5e1da;
-            box-shadow: 0 10px 30px rgba(217, 119, 98, 0.08);
+            border: 1px solid rgba(232, 165, 152, 0.25);
+            box-shadow: 0 15px 35px rgba(217, 119, 98, 0.06);
             margin-top: 60px;
         }
 
         .contact-title-large {
-            font-size: 2.8rem;
+            font-size: 2.6rem;
             font-weight: 800;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             color: var(--accent-color);
-            margin-bottom: 25px;
+            margin-bottom: 28px;
             text-transform: uppercase;
         }
 
         .contact-social-icons {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-bottom: 30px;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
         }
 
         .social-circle-btn {
             width: 52px;
             height: 52px;
             border-radius: 50%;
-            background: #1c1e21;
+            background: #1e1e1e;
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
         }
 
-        .social-circle-btn:hover {
+        /* Specific Hover Accent Colors */
+        .social-circle-btn.linkedin:hover {
+            background: var(--linkedin-blue);
             transform: translateY(-5px);
+        }
+
+        .social-circle-btn.facebook:hover {
+            background: var(--facebook-blue);
+            transform: translateY(-5px);
+        }
+
+        .social-circle-btn.zalo:hover {
+            background: var(--zalo-blue);
+            transform: translateY(-5px);
+        }
+
+        .social-circle-btn.email:hover {
             background: var(--accent-color);
-            color: white;
-            box-shadow: 0 8px 20px rgba(217, 119, 98, 0.3);
+            transform: translateY(-5px);
         }
 
-        .contact-details-row {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            font-size: 0.95rem;
-            color: var(--text-dark);
-            font-weight: 500;
-        }
-
-        .contact-detail-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-dark);
-            text-decoration: none;
-        }
-
-        .contact-detail-item i {
-            color: var(--accent-color);
-            font-size: 1.1rem;
-        }
-
-        .contact-detail-item:hover {
-            color: var(--accent-color);
+        /* Custom Zalo Text Badge Icon */
+        .zalo-text-icon {
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            font-family: Arial, sans-serif;
         }
 
         /* Lightbox Full Screen Modal */
@@ -590,12 +586,7 @@
             }
 
             .contact-title-large {
-                font-size: 2.2rem;
-            }
-
-            .contact-details-row {
-                flex-direction: column;
-                gap: 15px;
+                font-size: 2.1rem;
             }
         }
     </style>
@@ -835,23 +826,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Market Research Card -->
-                <div class="card" style="grid-column: 1 / -1;">
-                    <div class="card-title">Shopee Seasoning Market Research</div>
-                    <div class="card-sub">Market Research Case Study</div>
-                    <p style="font-size:0.88rem; color:var(--text-muted)">Analyzed Top 200 best-selling seasoning products using Excel (Pivot Table, Data Visualization).</p>
-                    <div class="project-metrics">
-                        <div class="metric-box">
-                            <div class="metric-value">31.3B VND</div>
-                            <div class="metric-label">Data Revenue</div>
-                        </div>
-                        <div class="metric-box">
-                            <div class="metric-value">15 Brands</div>
-                            <div class="metric-label">Market Share Analyzed</div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -870,23 +844,15 @@
             </div>
         </section>
 
-        <!-- Contact Box Section -->
+        <!-- Aesthetic Pastel Contact Section -->
         <section id="contact" class="contact-box">
             <div class="contact-title-large">CONTACT</div>
             
             <div class="contact-social-icons">
-                <a href="https://www.linkedin.com/in/hien-thi-thu-nhi/" target="_blank" class="social-circle-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=61572487434250" target="_blank" class="social-circle-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="mailto:hienthithunhi.work@gmail.com" class="social-circle-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
-            </div>
-
-            <div class="contact-details-row">
-                <a href="mailto:hienthithunhi.work@gmail.com" class="contact-detail-item">
-                    <i class="fa-solid fa-envelope"></i> hienthithunhi.work@gmail.com
-                </a>
-                <a href="tel:+84968980630" class="contact-detail-item">
-                    <i class="fa-solid fa-phone"></i> (+84) 968 980 630
-                </a>
+                <a href="https://www.linkedin.com/in/hien-thi-thu-nhi/" target="_blank" class="social-circle-btn linkedin" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61572487434250" target="_blank" class="social-circle-btn facebook" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://zalo.me/0968980630" target="_blank" class="social-circle-btn zalo" title="Zalo Chat"><span class="zalo-text-icon">Zalo</span></a>
+                <a href="mailto:hienthithunhi.work@gmail.com" class="social-circle-btn email" title="Send Email"><i class="fa-solid fa-envelope"></i></a>
             </div>
         </section>
 
