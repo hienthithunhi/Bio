@@ -85,6 +85,8 @@ h2{font-family:var(--serif);font-weight:700;font-size:clamp(1.7rem,3.5vw,2.3rem)
 .gal figure{flex:0 0 min(300px,78%);scroll-snap-align:start;margin:0}
 .gal img{width:100%;height:210px;object-fit:cover;border-radius:14px;background:#fff;cursor:zoom-in;display:block;box-shadow:0 6px 18px rgba(63,116,184,.14)}
 .gal figcaption{font-size:.85rem;color:var(--muted);margin-top:8px}
+.gal.wide figure{flex-basis:min(560px,88%)}
+.gal.wide img{height:300px;object-fit:contain}
 .ph{height:210px;border-radius:14px;border:2px dashed var(--line);display:grid;place-items:center;text-align:center;padding:14px;font-size:.8rem;color:var(--muted);background:rgba(255,255,255,.5)}
 
 /* research & edu */
@@ -104,6 +106,12 @@ h2{font-family:var(--serif);font-weight:700;font-size:clamp(1.7rem,3.5vw,2.3rem)
 .soc a{width:50px;height:50px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;text-decoration:none;font-size:1.1rem;transition:.25s}
 .soc a:hover{background:var(--blue);transform:translateY(-4px)}
 .soc a.gm{background:#fff;border:1px solid var(--line)}.soc a.gm:hover{background:var(--sky)}
+.soc a.li{background:#fff;border:1px solid var(--line);color:#0a66c2;font-size:1.7rem}
+.soc a.li:hover{background:var(--sky)}
+.soc a.zl{background:#0068ff;color:#fff;font-size:.78rem;font-weight:700}
+.soc a.zl:hover{background:#0053cc}
+.soc a.tel{background:#2fb344;color:#fff}
+.soc a.tel:hover{background:#238a35}
 .info a{text-decoration:none}
 .info{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;font-size:.95rem}
 footer{text-align:center;color:var(--muted);font-size:.82rem;padding:36px 0 48px}
@@ -243,10 +251,10 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;padding:36px 0 48px
 <h2>Let's work together</h2>
 <p class="lead" style="margin:0 auto">Open to Marketing Executive roles with a brand focus.</p>
 <div class="soc">
-<a href="https://www.linkedin.com/in/hien-thi-thu-nhi/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+<a class="li" href="https://www.linkedin.com/in/hien-thi-thu-nhi/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
 <a class="gm" href="mailto:hienthithunhi.work@gmail.com" aria-label="Gmail" title="Gmail"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="#4285F4" d="M2 6.7v10.8A1.5 1.5 0 0 0 3.5 19H6V9.9z"/><path fill="#34A853" d="M22 6.7v10.8a1.5 1.5 0 0 1-1.5 1.5H18V9.9z"/><path fill="#EA4335" d="M2 6.7 12 14l10-7.3c0-1.8-2-2.8-3.4-1.8L12 9.9 5.4 4.9C4 3.9 2 4.9 2 6.7z"/></svg></a>
-<a href="https://zalo.me/0968980630" target="_blank" rel="noopener" aria-label="Zalo" title="Zalo" style="font-size:.75rem;font-weight:700">Zalo</a>
-<a href="tel:+84968980630" aria-label="Phone" title="Phone"><i class="fa-solid fa-phone"></i></a>
+<a class="zl" href="https://zalo.me/0968980630" target="_blank" rel="noopener" aria-label="Zalo" title="Zalo">Zalo</a>
+<a class="tel" href="tel:+84968980630" aria-label="Phone" title="Phone"><i class="fa-solid fa-phone"></i></a>
 </div>
 <div class="info"><a href="https://www.linkedin.com/in/hien-thi-thu-nhi/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin" style="color:#0a66c2"></i> linkedin.com/in/hien-thi-thu-nhi</a><span><i class="fa-solid fa-phone"></i> (+84) 968 980 630</span></div>
 </div>
@@ -260,7 +268,7 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;padding:36px 0 48px
 /* ===== EDIT HERE: links (leave "" to hide a button) and images ===== */
 const LINK = {
   tvc: "",            // TVC / video made from your idea (YouTube or Facebook)
-  sheet: "",          // Google Sheet content plan (set to "Anyone with the link: Viewer")
+  sheet: "https://docs.google.com/spreadsheets/d/198E_uSun4sOTvDTmpOlw2FpNWQ9N_jFKcKsoPzrcRrg/edit?usp=sharing",
   launchPdf: "",      // Launch portfolio PDF
   proposalPdf: "",    // Event proposal PDF
   scamp: "https://youtu.be/oJKWSfME0wA",
@@ -273,7 +281,7 @@ const WORK = [
   links:[["Watch the TVC", LINK.tvc, "circle-play"]],
   imgs:[["moi-softpower.jpg","Creative idea"],["moi-pushsoftpower.jpg","Creative idea"],["moi-dealsoftpower.jpg","Creative idea"],["moi-babycheek.jpg","Creative idea"],["moi-contest.png","Creative idea"],["moi-megalive.jpg","Mega livestream visual"],["moi-cushion.jpg","Cushion campaign"],["moi-trendy.jpg","Trend-based content"]]},
  {id:"plan", name:"Content plan", icon:"table",
-  text:"A monthly content plan built in Google Sheets: objectives, content pillars, channels, publishing schedule and KPIs, reviewed against Facebook Page performance.",
+  text:"Content plan tracking Plan vs Actual by month: volume by product, pillar, platform, sales channel and format, with a weekly calendar of angles, detailed scripts, air dates and status for each post.",
   links:[["Open the Google Sheet", LINK.sheet, "table"]],
   imgs:[["assets/content-plan/contentplan-01.png","Monthly overview"],["assets/content-plan/contentplan-02.png","Content calendar detail"]]},
  {id:"launch", name:"Product launch portfolio", icon:"rocket",
