@@ -98,7 +98,8 @@ h2{font-family:var(--serif);font-weight:700;font-size:clamp(1.7rem,3.5vw,2.3rem)
 .card ul{padding-left:20px;font-size:.93rem}.card li{margin-bottom:6px}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .tags span{background:#fff;border-radius:999px;padding:5px 13px;font-size:.84rem}
-
+.video{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(63,116,184,.14);margin-bottom:14px}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 /* contact */
 .contact{text-align:center;padding:48px 24px}
 .contact h2{font-size:clamp(2rem,5vw,3rem)}
@@ -239,6 +240,7 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;padding:36px 0 48px
 <h3>TỤ SẮC, Cultural Exchange Festival</h3>
 <p style="color:var(--muted);font-size:.93rem;margin-bottom:10px">Class project at UEH: a student event showcasing Vietnamese culture. I led a team of 10 split into Social and Event groups, managed the budget and wrote and seeded content across student communities.</p>
 <div class="res" style="margin:0 0 14px"><span>Course grade 4.0</span><span>+189 followers</span><span>Top 3, chosen as a model for future cohorts</span></div>
+<div class="video" id="tusacVideo"></div>
 <div class="links" style="margin:0" id="tusac"></div>
 </div>
 </div>
@@ -323,8 +325,11 @@ $('#tabs').innerHTML = WORK.map(w=>`<button class="tab" role="tab" data-id="${w.
 $('#tabs').onclick = e=>{ const b=e.target.closest('.tab'); if(b) show(b.dataset.id); };
 show('ideas');
 
-$('#tusac').innerHTML = [["Watch the recap",LINK.tusacRecap,"circle-play"],["Visit the fanpage",LINK.tusacPage,"link"]].map(linkBtn).join('');
-
+const fbVideo = u => `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(u)}&show_text=false`;
+$('#tusacVideo').innerHTML = LINK.tusacRecap
+  ? `<iframe src="${fbVideo(LINK.tusacRecap)}" title="TỤ SẮC recap" allowfullscreen loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>`
+  : '';
+$('#tusac').innerHTML = [["Open on Facebook",LINK.tusacRecap,"circle-play"],["Visit the fanpage",LINK.tusacPage,"link"]].map(linkBtn).join('');
 /* scroll spy for the side menu */
 const links = [...document.querySelectorAll('.dock a')];
 const io = new IntersectionObserver(es=>es.forEach(e=>{
