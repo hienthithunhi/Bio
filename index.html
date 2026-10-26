@@ -100,6 +100,7 @@ h2{font-family:var(--serif);font-weight:700;font-size:clamp(1.7rem,3.5vw,2.3rem)
 .tags span{background:#fff;border-radius:999px;padding:5px 13px;font-size:.84rem}
 .video{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(63,116,184,.14);margin-bottom:14px}
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.panel .video{max-width:720px}
 /* contact */
 .contact{text-align:center;padding:48px 24px}
 .contact h2{font-size:clamp(2rem,5vw,3rem)}
@@ -282,10 +283,11 @@ const WORK = [
   text:"Concepts from my own ideas at M.O.I Cosmetics base on Performance and USP of products",
   links:[["Watch the TVC", LINK.tvc, "circle-play"]],
   imgs:[["moi-softpower.jpg","Creative idea"],["moi-pushsoftpower.jpg","Creative idea"],["moi-dealsoftpower.jpg","Creative idea"],["moi-babycheek.jpg","Creative idea"],["moi-contest.png","Creative idea"],["moi-megalive.jpg","Mega livestream visual"],["moi-cushion.jpg","Cushion campaign"],["moi-trendy.jpg","Trend-based content"]]},
- {id:"plan", name:"Content plan", icon:"table",
-  text:"Content plan tracking Plan vs Actual by month: volume by product, pillar, platform, sales channel and format, with a weekly calendar of angles, detailed scripts, air dates and status for each post.",
-  links:[["Open the Google Sheet", LINK.sheet, "table"]],
-  imgs:[["assets/content-plan/contentplan-01.png","Monthly overview"],["assets/content-plan/contentplan-02.png","Content calendar detail"]]},
+  {id:"proposal", name:"Event proposal", icon:"calendar-check",
+  text:"Event and activation proposals at CellphoneS: concept, timeline, vendor plan and budgets from 300M to 1,6B VND.",
+  video:"https://www.youtube.com/embed/oJKWSfME0wA",
+  links:[["Read the full proposal", LINK.proposalPdf, "file-pdf"],["Open on YouTube", LINK.scamp, "circle-play"]],
+  imgs:[["assets/proposal/proposal-01-concept.jpg","Concept and objectives"],["assets/proposal/proposal-02-timeline.jpg","Timeline and operations"],["assets/proposal/proposal-03-budget.jpg","Budget overview"]]}
  {id:"launch", name:"Product launch portfolio", icon:"rocket",
   text:"Launching Soft Power Matte Lip Tint (6 shades, soft matte finish): positioning, USP, key message, channel mix and activation plan.",
   links:[["Read the full portfolio", LINK.launchPdf, "file-pdf"]],
@@ -318,8 +320,7 @@ function show(id){
   const w = WORK.find(x=>x.id===id);
   document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected', t.dataset.id===id));
   const p = $('#panel');
-  p.innerHTML = `<p>${w.text}</p><div class="links">${w.links.map(linkBtn).join('')}</div><div class="gal"></div>`;
-  w.imgs.forEach(i=>$('.gal',p).append(fig(i)));
+p.innerHTML = `<p>${w.text}</p>${w.video?`<div class="video"><iframe src="${w.video}" title="${w.name}" allowfullscreen loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture; web-share"></iframe></div>`:''}<div class="links">${w.links.map(linkBtn).join('')}</div><div class="gal ${w.cls||''}"></div>`;  w.imgs.forEach(i=>$('.gal',p).append(fig(i)));
 }
 $('#tabs').innerHTML = WORK.map(w=>`<button class="tab" role="tab" data-id="${w.id}"><i class="fa-solid fa-${w.icon}"></i> ${w.name}</button>`).join('');
 $('#tabs').onclick = e=>{ const b=e.target.closest('.tab'); if(b) show(b.dataset.id); };
