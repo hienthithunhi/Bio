@@ -57,7 +57,7 @@ h2{font-family:var(--serif);font-weight:700;font-size:clamp(1.7rem,3.5vw,2.3rem)
 .brands{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px;align-items:center}
 .brands .lbl{font-size:.9rem;color:var(--muted);margin-right:6px}
 .brand{display:inline-flex;align-items:center;gap:8px;background:#fff;border-radius:14px;padding:8px 18px;font-weight:600;font-size:.92rem;box-shadow:0 4px 14px rgba(63,116,184,.1)}
-.brand img{height:22px;width:auto}
+.brand img{height:26px;width:auto;display:block}
 
 /* experience */
 .tl{position:relative;padding-left:34px}
@@ -101,6 +101,7 @@ h2{font-family:var(--serif);font-weight:700;font-size:clamp(1.7rem,3.5vw,2.3rem)
 .video{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(63,116,184,.14);margin-bottom:14px}
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .panel .video{max-width:720px}
+.video:empty{display:none}
 /* contact */
 .contact{text-align:center;padding:48px 24px}
 .contact h2{font-size:clamp(2rem,5vw,3rem)}
@@ -125,6 +126,14 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;padding:36px 0 48px
 @media(max-width:900px){.dock{display:none}.hero{grid-template-columns:1fr;min-height:auto;padding-top:48px}.avatar{max-width:320px;order:-1}.two{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
 </style>
+<script>
+/* logo: try the nested folder once, then hide */
+function logoFallback(img){
+  const nested = img.getAttribute('src').replace('assets/logos/','assets/logos/assets/logos/');
+  if(!img.dataset.tried && nested !== img.getAttribute('src')){ img.dataset.tried = '1'; img.src = nested; }
+  else img.remove();
+}
+</script>
 </head>
 <body>
 
@@ -170,8 +179,8 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;padding:36px 0 48px
 </div>
 <div class="brands">
 <span class="lbl">Worked with</span>
-<span class="brand"><img src="assets/logos/logo-cellphones.png" alt="" onerror="this.remove()">CellphoneS <span style="font-weight:400;color:var(--muted)">(Apple, Samsung, Xiaomi, Oppo,...)</span></span>
-<span class="brand"><img src="assets/logos/logo-moi.png" alt="" onerror="this.remove()">M.O.I Cosmetics</span>
+<span class="brand"><img src="assets/logos/logo-cellphones.png" alt="CellphoneS" onerror="logoFallback(this)">CellphoneS <span style="font-weight:400;color:var(--muted)">(Apple, Samsung, Xiaomi, Oppo,...)</span></span>
+<span class="brand"><img src="assets/logos/logo-moi.png" alt="M.O.I Cosmetics" onerror="logoFallback(this)">M.O.I Cosmetics</span>
 </div>
 </section>
 
@@ -270,34 +279,32 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;padding:36px 0 48px
 <script>
 /* ===== EDIT HERE: links (leave "" to hide a button) and images ===== */
 const LINK = {
-  tvc: "",            // TVC / video made from your idea (YouTube or Facebook)
+  tvc: "",
   sheet: "https://docs.google.com/spreadsheets/d/198E_uSun4sOTvDTmpOlw2FpNWQ9N_jFKcKsoPzrcRrg/edit?usp=sharing",
-{id:"launch", name:"Product launch portfolio", icon:"rocket",
-  text:"Launching Soft Power Matte Lip Tint at M.O.I Cosmetics: customer survey and insights, 6-shade line-up, the 'soft power' concept, a 4-phase communication roadmap (40M+ organic views target), KOL and KOC seeding, and a launch event at Aeon Mall Binh Tan.",
-  links:[["Read the full portfolio", LINK.launchPdf, "file-pdf"]],
-  imgs:[["assets/launch/launch-01.jpg","Customer survey: 2,892 respondents"],["assets/launch/launch-02.jpg","Insight: 64% of women face dry, flaky lips"],["assets/launch/launch-03.jpg","Product question: must lipstick dry the lips?"],["assets/launch/launch-04.jpg","6 shades chosen from the survey"],["assets/launch/launch-05.jpg","Concept: the power of 'soft'"],["assets/launch/launch-06.jpg","4-phase communication roadmap"],["assets/launch/launch-07.jpg","KOL line-up and seeding"],["assets/launch/launch-08.jpg","Launch event at Aeon Mall Binh Tan"]]},  proposalPdf: "",    // Event proposal PDF
+  launchPdf: "assets/launch/MOI-Soft-Power-Launch-Portfolio.pdf",
+  proposalPdf: "",
   scamp: "https://youtu.be/oJKWSfME0wA",
   tusacRecap: "https://www.facebook.com/61572487434250/videos/4016023242009333",
   tusacPage: "https://www.facebook.com/profile.php?id=61572487434250"
 };
 const WORK = [
- {id:"ideas", name:"Ideas and visuals", icon:"lightbulb",
-  text:"Concepts from my own ideas at M.O.I Cosmetics base on Performance and USP of products",
-  links:[["Watch the TVC", LINK.tvc, "circle-play"]],
-  imgs:[["moi-softpower.jpg","Creative idea"],["moi-pushsoftpower.jpg","Creative idea"],["moi-dealsoftpower.jpg","Creative idea"],["moi-babycheek.jpg","Creative idea"],["moi-contest.png","Creative idea"],["moi-megalive.jpg","Mega livestream visual"],["moi-cushion.jpg","Cushion campaign"],["moi-trendy.jpg","Trend-based content"]]},
+  {id:"ideas", name:"Ideas and visuals", icon:"lightbulb",
+   text:"Concepts from my own ideas at M.O.I Cosmetics, based on the performance and USP of each product.",
+   links:[["Watch the TVC", LINK.tvc, "circle-play"]],
+   imgs:[["moi-softpower.jpg","Creative idea"],["moi-pushsoftpower.jpg","Creative idea"],["moi-dealsoftpower.jpg","Creative idea"],["moi-babycheek.jpg","Creative idea"],["moi-contest.png","Creative idea"],["moi-megalive.jpg","Mega livestream visual"],["moi-cushion.jpg","Cushion campaign"],["moi-trendy.jpg","Trend-based content"]]},
+  {id:"plan", name:"Content plan", icon:"table", cls:"wide",
+   text:"Content plan tracking Plan vs Actual by month: volume by product, pillar, platform, sales channel and format, with a weekly calendar of angles, detailed scripts, air dates and status for each post.",
+   links:[["Open the Google Sheet", LINK.sheet, "table"]],
+   imgs:[["assets/content-plan/contentplan-01.png","Monthly overview"],["assets/content-plan/contentplan-02.png","Content calendar detail"]]},
+  {id:"launch", name:"Product launch portfolio", icon:"rocket",
+   text:"Launching Soft Power Matte Lip Tint at M.O.I Cosmetics: customer survey and insights, 6-shade line-up, the 'soft power' concept, a 4-phase communication roadmap (40M+ organic views target), KOL and KOC seeding, and a launch event at Aeon Mall Binh Tan.",
+   links:[["Read the full portfolio", LINK.launchPdf, "file-pdf"]],
+   imgs:[["assets/launch/launch-01.jpg","Customer survey: 2,892 respondents"],["assets/launch/launch-02.jpg","Insight: 64% face dry, flaky lips"],["assets/launch/launch-03.jpg","Product question: must lipstick dry the lips?"],["assets/launch/launch-04.jpg","6 shades chosen from the survey"],["assets/launch/launch-05.jpg","Concept: the power of 'soft'"],["assets/launch/launch-06.jpg","4-phase communication roadmap"],["assets/launch/launch-07.jpg","KOL line-up and seeding"],["assets/launch/launch-08.jpg","Launch event at Aeon Mall Binh Tan"]]},
   {id:"proposal", name:"Event proposal", icon:"calendar-check",
-  text:"Event and activation proposals at CellphoneS: concept, timeline, vendor plan and budgets from 300M to 1,6B VND.",
-  video:"https://www.youtube.com/embed/oJKWSfME0wA",
-  links:[["Read the full proposal", LINK.proposalPdf, "file-pdf"],["Open on YouTube", LINK.scamp, "circle-play"]],
-  imgs:[["assets/proposal/proposal-01-concept.jpg","Concept and objectives"],["assets/proposal/proposal-02-timeline.jpg","Timeline and operations"],["assets/proposal/proposal-03-budget.jpg","Budget overview"]]}
- {id:"launch", name:"Product launch portfolio", icon:"rocket",
-  text:"Launching Soft Power Matte Lip Tint (6 shades, soft matte finish): positioning, USP, key message, channel mix and activation plan.",
-  links:[["Read the full portfolio", LINK.launchPdf, "file-pdf"]],
-  imgs:[["assets/launch/launch-01-softpower-p1.jpg","Positioning and USP"],["assets/launch/launch-02-softpower-p2.jpg","Campaign concept"],["assets/launch/launch-03-softpower-p3.jpg","Channel plan"]]},
- {id:"proposal", name:"Event proposal", icon:"calendar-check",
-  text:"Event and activation proposals at CellphoneS: concept, timeline, vendor plan and budgets from 300M to 1,6B VND.",
-  links:[["Read the full proposal", LINK.proposalPdf, "file-pdf"],["Watch S.CAMP 2025", LINK.scamp, "circle-play"]],
-  imgs:[["assets/proposal/proposal-01-concept.jpg","Concept and objectives"],["assets/proposal/proposal-02-timeline.jpg","Timeline and operations"],["assets/proposal/proposal-03-budget.jpg","Budget overview"]]}
+   text:"Event and activation proposals at CellphoneS: concept, timeline, vendor plan and budgets from 300M to 1,6B VND.",
+   video:"https://www.youtube.com/embed/oJKWSfME0wA",
+   links:[["Read the full proposal", LINK.proposalPdf, "file-pdf"],["Open on YouTube", LINK.scamp, "circle-play"]],
+   imgs:[["assets/proposal/proposal-01-concept.jpg","Concept and objectives"],["assets/proposal/proposal-02-timeline.jpg","Timeline and operations"],["assets/proposal/proposal-03-budget.jpg","Budget overview"]]}
 ];
 
 const $ = (s,r=document)=>r.querySelector(s);
@@ -314,7 +321,15 @@ function fig([src,cap]){
   const img = new Image();
   img.alt = cap; img.loading = 'lazy'; img.src = src;
   img.onclick = ()=>{ $('img',lb).src = img.src; lb.classList.add('open'); };
-  img.onerror = ()=>{ img.replaceWith(Object.assign(document.createElement('div'),{className:'ph',textContent:'Add image: '+src})); };
+  let tried = false;
+  img.onerror = ()=>{
+    if(!tried){ /* try the other extension once (png <-> jpg) */
+      tried = true;
+      const swapped = /\.png$/i.test(src) ? src.replace(/\.png$/i,'.jpg') : src.replace(/\.jpe?g$/i,'.png');
+      img.src = swapped; return;
+    }
+    img.replaceWith(Object.assign(document.createElement('div'),{className:'ph',textContent:'Add image: '+src}));
+  };
   const c = document.createElement('figcaption'); c.textContent = cap;
   f.append(img,c); return f;
 }
@@ -322,23 +337,31 @@ function show(id){
   const w = WORK.find(x=>x.id===id);
   document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected', t.dataset.id===id));
   const p = $('#panel');
-p.innerHTML = `<p>${w.text}</p>${w.video?`<div class="video"><iframe src="${w.video}" title="${w.name}" allowfullscreen loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture; web-share"></iframe></div>`:''}<div class="links">${w.links.map(linkBtn).join('')}</div><div class="gal ${w.cls||''}"></div>`;  w.imgs.forEach(i=>$('.gal',p).append(fig(i)));
+  const vid = w.video ? `<div class="video"><iframe src="${w.video}" title="${w.name}" allowfullscreen loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture; web-share"></iframe></div>` : '';
+  p.innerHTML = `<p>${w.text}</p>${vid}<div class="links">${w.links.map(linkBtn).join('')}</div><div class="gal ${w.cls||''}"></div>`;
+  w.imgs.forEach(i=>$('.gal',p).append(fig(i)));
 }
 $('#tabs').innerHTML = WORK.map(w=>`<button class="tab" role="tab" data-id="${w.id}"><i class="fa-solid fa-${w.icon}"></i> ${w.name}</button>`).join('');
 $('#tabs').onclick = e=>{ const b=e.target.closest('.tab'); if(b) show(b.dataset.id); };
 show('ideas');
 
-const fbVideo = u => `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(u)}&show_text=false`;
+/* TỤ SẮC video: YouTube or Facebook link */
+const embedUrl = u => {
+  const yt = u.match(/(?:youtu\.be\/|v=|embed\/)([\w-]{11})/);
+  return yt ? `https://www.youtube.com/embed/${yt[1]}`
+            : `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(u)}&show_text=false`;
+};
 $('#tusacVideo').innerHTML = LINK.tusacRecap
-  ? `<iframe src="${fbVideo(LINK.tusacRecap)}" title="TỤ SẮC recap" allowfullscreen loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>`
+  ? `<iframe src="${embedUrl(LINK.tusacRecap)}" title="TỤ SẮC recap" allowfullscreen loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>`
   : '';
 $('#tusac').innerHTML = [["Open on Facebook",LINK.tusacRecap,"circle-play"],["Visit the fanpage",LINK.tusacPage,"link"]].map(linkBtn).join('');
+
 /* scroll spy for the side menu */
-const links = [...document.querySelectorAll('.dock a')];
+const dockLinks = [...document.querySelectorAll('.dock a')];
 const io = new IntersectionObserver(es=>es.forEach(e=>{
-  if(e.isIntersecting) links.forEach(a=>a.classList.toggle('on', a.getAttribute('href')==='#'+e.target.id));
+  if(e.isIntersecting) dockLinks.forEach(a=>a.classList.toggle('on', a.getAttribute('href')==='#'+e.target.id));
 }),{rootMargin:'-40% 0px -55% 0px'});
-links.forEach(a=>{ const s=$(a.getAttribute('href')); if(s) io.observe(s); });
+dockLinks.forEach(a=>{ const s=$(a.getAttribute('href')); if(s) io.observe(s); });
 </script>
 </body>
 </html>
