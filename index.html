@@ -259,7 +259,7 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;padding:36px 0 48px
 <a class="zl" href="https://zalo.me/0968980630" target="_blank" rel="noopener" aria-label="Zalo" title="Zalo">Zalo</a>
 <a class="tel" href="tel:+84968980630" aria-label="Phone" title="Phone"><i class="fa-solid fa-phone"></i></a>
 </div>
-<div class="info"><a href="https://www.linkedin.com/in/hien-thi-thu-nhi/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin" style="color:#0a66c2"></i> linkedin.com/in/hien-thi-thu-nhi</a><span><i class="fa-solid fa-phone"></i> (+84) 968 980 630</span></div>
+<div class="info"><a href="tel:+84968980630"><i class="fa-solid fa-phone"></i> (+84) 968 980 630</a></div>
 </div>
 </section>
 </main>
@@ -272,10 +272,12 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;padding:36px 0 48px
 const LINK = {
   tvc: "",            // TVC / video made from your idea (YouTube or Facebook)
   sheet: "https://docs.google.com/spreadsheets/d/198E_uSun4sOTvDTmpOlw2FpNWQ9N_jFKcKsoPzrcRrg/edit?usp=sharing",
-  launchPdf: "",      // Launch portfolio PDF
-  proposalPdf: "",    // Event proposal PDF
+{id:"launch", name:"Product launch portfolio", icon:"rocket",
+  text:"Launching Soft Power Matte Lip Tint at M.O.I Cosmetics: customer survey and insights, 6-shade line-up, the 'soft power' concept, a 4-phase communication roadmap (40M+ organic views target), KOL and KOC seeding, and a launch event at Aeon Mall Binh Tan.",
+  links:[["Read the full portfolio", LINK.launchPdf, "file-pdf"]],
+  imgs:[["assets/launch/launch-01.jpg","Customer survey: 2,892 respondents"],["assets/launch/launch-02.jpg","Insight: 64% of women face dry, flaky lips"],["assets/launch/launch-03.jpg","Product question: must lipstick dry the lips?"],["assets/launch/launch-04.jpg","6 shades chosen from the survey"],["assets/launch/launch-05.jpg","Concept: the power of 'soft'"],["assets/launch/launch-06.jpg","4-phase communication roadmap"],["assets/launch/launch-07.jpg","KOL line-up and seeding"],["assets/launch/launch-08.jpg","Launch event at Aeon Mall Binh Tan"]]},  proposalPdf: "",    // Event proposal PDF
   scamp: "https://youtu.be/oJKWSfME0wA",
-  tusacRecap: "https://www.facebook.com/share/v/1DvLkVXAJg/",
+  tusacRecap: "https://www.facebook.com/61572487434250/videos/4016023242009333",
   tusacPage: "https://www.facebook.com/profile.php?id=61572487434250"
 };
 const WORK = [
